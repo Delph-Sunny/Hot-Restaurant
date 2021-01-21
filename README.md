@@ -1,4 +1,4 @@
-# Class Activity: HotRestaurant
+# Class Activity: Hot-Restaurant
 
 :construction:   IN PROGRESS  :construction:  
 
