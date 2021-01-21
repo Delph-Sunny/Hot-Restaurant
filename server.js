@@ -37,31 +37,31 @@ let waitList = [];
 // ROUTES
 // Home
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "./public/home.html"));
 });
 
 // Reserve
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "./public/reserve.html"));
 });
 
 // Tables
 app.get("/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, "./public/tables.html"));
 });
 
 // API
-app.get("/api/tables", function(req,res) {
+app.get("/api/tables", function(req, res) {
     return res.json(tables);
 })
 
-app.get("/api/waitlist", function(req,res) {
+app.get("/api/waitlist", function(req, res) {
     return res.json(waitList);
 })
 
-app.get("/api/tables/:table", function(req,res) {
+app.get("/api/tables/:table", function(req, res) {
     let chosen = req.params.table;
-    console.log(chosen);
+    console.log(chosen);    //For TESTING
 
     for(let i=0; i<tables.length; i++) {
         if(chosen === tables[i].routeName) {
@@ -72,10 +72,9 @@ app.get("/api/tables/:table", function(req,res) {
 
 // Handle users entering reservations - JSON input
 app.post("/api/tables", function(req, res) {
-
     let newTable = req.body;
 
-    console.log(newTable);
+    console.log(newTable);      //For TESTING
 
     if(tables.length === 5) {
         waitList.push(newTable);
@@ -88,5 +87,5 @@ app.post("/api/tables", function(req, res) {
 
 // LISTENER
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT: http://127.0.0.1:" + PORT);
 });
